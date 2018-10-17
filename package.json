@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "reset-db": "node controller/reset",
-    "start": "nodemon index"
+    "start": "pm2-runtime start ecosystem.config.js --env production",
+    "dev": "nodemon index"
   },
   "keywords": [],
   "author": "",
@@ -22,10 +23,14 @@
     "jsonwebtoken": "^8.3.0",
     "morgan": "^1.9.1",
     "mysql2": "^1.6.1",
+    "pm2": "^3.2.2",
     "sequelize": "^4.38.1",
     "sequelize-cli": "^4.1.1"
   },
   "devDependencies": {
     "ejs-lint": "^0.3.0"
+  },
+  "engines": {
+    "node": "8.11.4"
   }
 }

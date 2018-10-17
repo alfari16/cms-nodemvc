@@ -10,8 +10,7 @@ app.set('view engine', 'ejs')
 middleware(app)
 router(app)
 
-
-const port = process.env.PORT || 3000
+const port = process.env.NODE_ENV === 'development' ? 3000 : process.env.PORT
 app.listen(port, () => {
   console.log('listening on port ' + port)
 })

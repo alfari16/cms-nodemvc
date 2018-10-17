@@ -21,7 +21,8 @@ a Simple CMS using express with MVC Pattern
 - Fork this repo
 - Clone to ur computer
 - Run `npm install`
-- Create mysql database (See .env.example file)
+- Rename `/.env.example` to `/.env`
+- Create mysql database (See .env file)
 - Run `sequelize db:migrate`
 - Run `sequelize db:seed:all`
 - Add ur creativity into
