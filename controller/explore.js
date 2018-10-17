@@ -1,6 +1,7 @@
 const faker = require('faker')
 
-module.exports = (req, res, next) => {
+module.exports = (req, res) => {
+  const page = Number(req.query.page || 1)
   const dummyDesc = faker.lorem.paragraph()
   const description =
     dummyDesc.length > 140 ? dummyDesc.slice(0, 140) + '...' : dummyDesc
@@ -11,9 +12,8 @@ module.exports = (req, res, next) => {
 
   const data = {
     rows: [],
-    sideNav: []
+    page
   }
-
   for (let index = 0; index < 10; index++) {
     data.rows.push({
       date: faker.date.past(),
@@ -23,12 +23,5 @@ module.exports = (req, res, next) => {
       thumbnail: faker.image.avatar()
     })
   }
-  for (let index = 0; index < 3; index++) {
-    data.sideNav.push({
-      title,
-      name: faker.name.findName(),
-      thumbnail: faker.image.avatar()
-    })
-  }
-  res.render('home', data)
+  res.render('explore', data)
 }

@@ -1,23 +1,23 @@
-<div class="md4 sm3 xs12 pt-5 sidebar">
+<div class="sidebar">
   <section class="popular">
     <p class="title">Popular Post</p>
     <hr>
     <ul>
-      <?php 
-        foreach ($sidenavData as $data) {
-      ?>
+      <%
+        sideNav.forEach(single => {
+      %>
       <li>
-        <a href="<?php echo base_url().'post/'.$data['slug'];?>" class="flex-wrap">
-          <img class="sidenav-img" src="<?php echo base_url().'assets/'.$data['thumbnail'];?>" alt="<?php echo $data['judul'];?>">
+        <a href="#" class="flex-wrap">
+          <img class="sidenav-img" src="<%= single.thumbnail %>" alt="<%= single.title %>">
           <div class="right flex-wrap">
-            <p class="title sub-title"><?php echo $data['judul'];?></p>
-            <p class="penulis"><?php echo $data['nama'];?></p>
+            <p class="title sub-title"><%= single.title %></p>
+            <p class="penulis"><%= single.name %></p>
           </div>
         </a>
       </li>
-      <?php 
-        }
-      ?>
+      <% 
+        });
+      %>
     </ul>
   </section>
   <section class="subscribe">
@@ -29,6 +29,3 @@
     <small class="penulis mt-3">Kamu akan mendapat notifikasi saat karya baru diunggah.</small>
   </section>
 </div>
-</div>
-  </div>
-</section>

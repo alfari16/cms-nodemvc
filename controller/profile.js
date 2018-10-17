@@ -8,13 +8,17 @@ module.exports = (req, res, next) => {
   const dummyTitle = faker.lorem.sentence()
   const title =
     dummyTitle.length > 82 ? dummyTitle.slice(0, 82) + '...' : dummyTitle
+  const page = req.query.page || 1
 
   const data = {
     rows: [],
-    sideNav: []
+    name: faker.name.findName(),
+    nim: 16651021,
+    thumbnail: faker.image.avatar(),
+    page
   }
 
-  for (let index = 0; index < 10; index++) {
+  for (let index = 0; index < 4; index++) {
     data.rows.push({
       date: faker.date.past(),
       title,
@@ -23,12 +27,6 @@ module.exports = (req, res, next) => {
       thumbnail: faker.image.avatar()
     })
   }
-  for (let index = 0; index < 3; index++) {
-    data.sideNav.push({
-      title,
-      name: faker.name.findName(),
-      thumbnail: faker.image.avatar()
-    })
-  }
-  res.render('home', data)
+
+  res.render('profile', data)
 }
